@@ -18,7 +18,7 @@
 		<org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
 		<org.projectlombok.mapstruct.binding>0.2.0</org.projectlombok.mapstruct.binding>
 		<org.projectlombok.mapstruct.binding>0.2.0</org.projectlombok.mapstruct.binding>
-		<org.projectlombok>1.18.24</org.projectlombok>
+		<org.projectlombok>1.18.36</org.projectlombok>
 		<spring.boot.maven.compiler.plugin.version>3.10.1</spring.boot.maven.compiler.plugin.version>
 	</properties>
 	<dependencies>
