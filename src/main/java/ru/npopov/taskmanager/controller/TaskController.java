@@ -1,5 +1,8 @@
 package ru.npopov.taskmanager.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -22,17 +25,29 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
+@Tag(
+      name = "Task Controller",
+      description = "Контроллер для управления задачами"
+)
 public class TaskController {
 
     private final TaskService taskService;
 
     @PostMapping
+    @Operation(
+            summary = "Создание задачи",
+            description = "Позволяет создавать задачу"
+    )
     public TaskResponseDto create(@RequestBody TaskRequestDto requestDto) {
         log.info("Received request of creating task with name: {}", requestDto.name());
         return taskService.create(requestDto);
     }
 
     @GetMapping
+    @Operation(
+            summary = "Получение списка задач",
+            description = "Позволяет получать список всех задач"
+    )
     public List<TaskResponseDto> get() {
         log.info("Received request of getting all tasks");
         return taskService.get();
@@ -40,12 +55,25 @@ public class TaskController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable("id") Long id) {
+    @Operation(
+            summary = "Удаление задачи",
+            description = "Позволяет удалять задачу"
+    )
+    public void delete(
+            @PathVariable("id") @Parameter(description = "Идентификатор задачи") Long id
+    ) {
         taskService.delete(id);
     }
 
     @PutMapping("/{id}")
-    public TaskResponseDto update(@PathVariable("id") Long id, @RequestBody TaskRequestDto requestDto) {
+    @Operation(
+            summary = "Обновление задачи",
+            description = "Позволяет обновлять задачу"
+    )
+    public TaskResponseDto update(
+            @PathVariable("id") @Parameter(description = "Идентификатор задачи") Long id,
+            @RequestBody TaskRequestDto requestDto
+    ) {
         log.info("Received update request for task with id: {}", id);
         return taskService.update(id, requestDto);
     }

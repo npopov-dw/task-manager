@@ -20,6 +20,8 @@
 		<org.projectlombok.mapstruct.binding>0.2.0</org.projectlombok.mapstruct.binding>
 		<org.projectlombok>1.18.36</org.projectlombok>
 		<spring.boot.maven.compiler.plugin.version>3.10.1</spring.boot.maven.compiler.plugin.version>
+		<swagger.version>2.2.34</swagger.version>
+		<springdoc-openapi-starter-webmvc-ui.version>2.5.0</springdoc-openapi-starter-webmvc-ui.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -63,6 +65,16 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok-mapstruct-binding</artifactId>
 			<version>${org.projectlombok.mapstruct.binding}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>${springdoc-openapi-starter-webmvc-ui.version}</version>
 		</dependency>
 	</dependencies>
 
