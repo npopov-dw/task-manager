@@ -1,9 +1,11 @@
 package ru.npopov.taskmanager.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Builder;
 
-import java.util.Date;
+import java.time.LocalDate;
 
+@Builder
 public record TaskRequestDto (
         @Schema(description = "Уникальное наименование задачи", example = "Задача")
         String name,
@@ -12,5 +14,5 @@ public record TaskRequestDto (
         String description,
 
         @Schema(description = "Запланированная дата выполнения задачи", example = "2025-09-06")
-        Date dateExec
+        LocalDate dateExec
 ) {}

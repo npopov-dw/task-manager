@@ -8,14 +8,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name = "tasks")
@@ -23,6 +25,8 @@ import java.util.Date;
 @AllArgsConstructor
 @Setter
 @Getter
+@EqualsAndHashCode
+@Builder
 public class Task {
 
     @Id
@@ -38,7 +42,7 @@ public class Task {
     private String description;
 
     @Column(name = "date_exec")
-    private Date dateExec;
+    private LocalDate dateExec;
 
     @Column(name = "created_at", nullable = false)
     @CreationTimestamp

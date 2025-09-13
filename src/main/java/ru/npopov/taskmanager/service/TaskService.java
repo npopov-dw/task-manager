@@ -38,12 +38,12 @@ public class TaskService {
 
     public TaskResponseDto update(Long id, TaskRequestDto requestDto) {
         Task newTask = taskMapper.mapToEntity(requestDto);
-        Task task = taskRepository.getReferenceById(id);
-        task.setName(newTask.getName());
-        task.setDescription(newTask.getDescription());
-        task.setDateExec(newTask.getDateExec());
+        Task existingTask = taskRepository.getReferenceById(id);
+        existingTask.setName(newTask.getName());
+        existingTask.setDescription(newTask.getDescription());
+        existingTask.setDateExec(newTask.getDateExec());
 
-        TaskResponseDto responseDto = taskMapper.mapToDto(taskRepository.save(task));
+        TaskResponseDto responseDto = taskMapper.mapToDto(taskRepository.save(existingTask));
         log.info("Task with id: {} updated", responseDto.id());
         return responseDto;
     }
