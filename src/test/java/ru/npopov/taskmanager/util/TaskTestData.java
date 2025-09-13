@@ -11,6 +11,7 @@ import java.util.List;
 
 public class TaskTestData {
 
+    public static final String TASK_URL_TEMPLATE = "/api/v1/tasks";
     public static final Long DEFAULT_ID = 3L;
     private static final String DEFAULT_TASK_NAME = "Task 1";
     private static final String DEFAULT_TASK_DESCRIPTION = "Description task 1";

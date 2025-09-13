@@ -34,6 +34,7 @@ public class TaskController {
     private final TaskService taskService;
 
     @PostMapping
+    @ResponseStatus(code = HttpStatus.CREATED)
     @Operation(
             summary = "Создание задачи",
             description = "Позволяет создавать задачу"
